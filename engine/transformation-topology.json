@@ -1,1 +1,69 @@
+{
+  "engine": "RTT/3",
+  "version": "2026.1",
+  "layer": "topology",
+  "description": "Canonical RTT/3 topology structure produced by the transformation engine.",
+
+  "topology": {
+    "surfaces": {
+      "description": "Coherence-derived and GPU-derived topology surfaces.",
+      "schema": {
+        "label": "string",
+        "regimes": ["S", "E", "R"],
+        "metadata": {
+          "alignment": "number",
+          "stability": "number"
+        }
+      }
+    },
+
+    "intersections": {
+      "description": "Regime intersections produced by topology-scan and GPU topology.",
+      "schema": {
+        "label": "string",
+        "regimes": ["S", "E", "R"],
+        "source": "string"
+      }
+    },
+
+    "overlays": {
+      "description": "Drift-coherence overlays including GPU overlays.",
+      "schema": {
+        "label": "string",
+        "magnitude": "number",
+        "from": "string",
+        "to": "string"
+      }
+    }
+  },
+
+  "input": {
+    "regimeView": {
+      "description": "RTT/2 structural regime view.",
+      "required": true
+    },
+    "driftView": {
+      "description": "RTT/2 drift vectors and drift fields.",
+      "required": true
+    },
+    "coherenceView": {
+      "description": "RTT/2 coherence geometry surfaces, alignment, stability.",
+      "required": true
+    }
+  },
+
+  "output": {
+    "description": "Unified RTT/3 topology object consumed by RTT/12.",
+    "schema": {
+      "engine": "RTT/3",
+      "operator": "transformation-engine",
+      "version": "2026.1",
+      "topology": {
+        "surfaces": [],
+        "intersections": [],
+        "overlays": []
+      }
+    }
+  }
+}
 
