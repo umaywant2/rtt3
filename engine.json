@@ -1,1 +1,93 @@
+{
+  "engine": "RTT/3",
+  "name": "Topology Engine",
+  "version": "2026.1",
+  "description": "RTT/3 constructs topology surfaces, regime intersections, and drift‑coherence overlays from RTT/2 structural, drift, and coherence geometry.",
+
+  "triadic": {
+    "mode": ["S", "E", "R"],
+    "primary_operator": "topology-map",
+    "operators": [
+      "topology-map",
+      "topology-scan",
+      "topology-geometry",
+      "gpu-topology"
+    ],
+    "purpose": "Topology construction and regime intersection analysis"
+  },
+
+  "pipeline": {
+    "position": "RTT/2 → RTT/3 → RTT/12",
+    "upstream": "RTT/2",
+    "downstream": ["RTT/12"]
+  },
+
+  "inputs": {
+    "types": ["json", "structured-object"],
+    "schema": "src/api/topology.schema.json"
+  },
+
+  "outputs": {
+    "primary": [
+      "topology-surfaces.json",
+      "topology-intersections.json",
+      "topology-overlays.json"
+    ],
+    "secondary": [
+      "cluster.json",
+      "cluster.svg"
+    ]
+  },
+
+  "api": {
+    "topology": {
+      "client": "src/api/topology.client.js",
+      "worker": "src/api/topology.worker.js",
+      "schema": "src/api/topology.schema.json",
+      "openapi": "src/api/topology.openapi.yaml",
+      "tests": "src/api/topology.test.js"
+    },
+    "gpu-topology": {
+      "client": "src/api/gpu-topology.client.js",
+      "worker": "src/api/gpu-topology.worker.js",
+      "schema": "src/api/gpu-topology.schema.json",
+      "openapi": "src/api/gpu-topology.openapi.yaml",
+      "tests": "src/api/gpu-topology.test.js"
+    }
+  },
+
+  "engine_files": {
+    "manifest": "engine/rtt3_manifest.md",
+    "modules": [
+      "engine/topology-map.md",
+      "engine/topology-scan.md",
+      "engine/topology-geometry.md",
+      "engine/gpu-topology.md"
+    ],
+    "topology": [
+      "engine/topology-surfaces.json",
+      "engine/topology-intersections.json",
+      "engine/topology-overlays.json"
+    ]
+  },
+
+  "docs": [
+    "docs/topology-map-protocol.md",
+    "docs/topology-scan-protocol.md",
+    "docs/topology-geometry-protocol.md",
+    "docs/gpu-topology-protocol.md",
+    "docs/gpu-topology-capture.md",
+    "docs/topology-integration-notes.md"
+  ],
+
+  "assets": {
+    "css": "assets/css/rtt3.css",
+    "js": "assets/js/rtt3.js",
+    "og": "assets/og/rtt3.png"
+  },
+
+  "license": "MIT",
+  "author": "Nawder Loswin",
+  "canonical": true
+}
 
