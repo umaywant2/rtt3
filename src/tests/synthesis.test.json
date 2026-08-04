@@ -1,1 +1,73 @@
+{
+  "engine": "RTT/3",
+  "operator": "synthesis",
+  "version": "2026.1",
+
+  "description": "Tests RTT/3 topology synthesis using combined structural, drift, and coherence inputs.",
+
+  "input": {
+    "regimeView": {
+      "structure": {
+        "nodes": [
+          { "id": "substrate:alpha", "label": "Alpha Node", "tier": "S" },
+          { "id": "substrate:beta", "label": "Beta Node", "tier": "E" },
+          { "id": "substrate:gamma", "label": "Gamma Node", "tier": "R" }
+        ],
+        "edges": [
+          { "from": "substrate:alpha", "to": "substrate:beta", "weight": 0.7 },
+          { "from": "substrate:beta", "to": "substrate:gamma", "weight": 0.4 }
+        ]
+      }
+    },
+
+    "driftView": {
+      "vectors": {
+        "structural": [
+          { "label": "alpha→beta drift", "from": "substrate:alpha", "to": "substrate:beta", "magnitude": 0.15 },
+          { "label": "beta→gamma drift", "from": "substrate:beta", "to": "substrate:gamma", "magnitude": 0.25 }
+        ]
+      },
+      "fields": [
+        {
+          "label": "SER path",
+          "regimes": ["S", "E", "R"],
+          "direction": "SER"
+        }
+      ]
+    },
+
+    "coherenceView": {
+      "surfaces": [
+        { "label": "Alpha Surface", "regimes": ["S"] },
+        { "label": "Beta Surface", "regimes": ["E"] },
+        { "label": "Gamma Surface", "regimes": ["R"] }
+      ],
+      "alignment": [
+        { "from": "substrate:alpha", "to": "substrate:beta", "magnitude": 0.82 }
+      ],
+      "stability": [
+        { "label": "substrate:beta", "gradient": 0.91 }
+      ]
+    }
+  },
+
+  "expected": {
+    "topology": {
+      "surfaces": [
+        { "label": "Alpha Surface", "regimes": ["S"] },
+        { "label": "Beta Surface", "regimes": ["E"] },
+        { "label": "Gamma Surface", "regimes": ["R"] }
+      ],
+      "intersections": [
+        { "label": "Alpha Node", "regimes": ["S"] },
+        { "label": "Beta Node", "regimes": ["E"] },
+        { "label": "Gamma Node", "regimes": ["R"] }
+      ],
+      "overlays": [
+        { "label": "alpha→beta drift", "magnitude": 0.15 },
+        { "label": "beta→gamma drift", "magnitude": 0.25 }
+      ]
+    }
+  }
+}
 
