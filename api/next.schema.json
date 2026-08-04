@@ -1,1 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://triadicframeworks.org/rtt3/api/next.schema.json",
+  "title": "RTT/3 Next-Step Synthesis",
+  "description": "JSON Schema for RTT/3 synthesis input and unified topology output.",
+  "type": "object",
+  "properties": {
+    "input": {
+      "type": "object",
+      "title": "SynthesisInput",
+      "required": [
+        "structuralTopology",
+        "intersections",
+        "surfaces",
+        "gpuTopology"
+      ],
+      "properties": {
+        "structuralTopology": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "description": "Structural topology from topology-map."
+        },
+        "intersections": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "description": "Regime intersections from topology-scan."
+        },
+        "surfaces": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "description": "Coherence surfaces from topology-geometry."
+        },
+        "gpuTopology": {
+          "type": "object",
+          "description": "GPU topology from gpu-topology.",
+          "properties": {
+            "topology": {
+              "type": "object",
+              "properties": {
+                "surfaces": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "intersections": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "overlays": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              },
+              "required": [
+                "surfaces",
+                "intersections",
+                "overlays"
+              ]
+            }
+          },
+          "required": [
+            "topology"
+          ]
+        }
+      }
+    },
+    "output": {
+      "type": "object",
+      "title": "SynthesisOutput",
+      "description": "Unified RTT/3 topology object.",
+      "properties": {
+        "engine": {
+          "type": "string",
+          "const": "RTT/3"
+        },
+        "operator": {
+          "type": "string",
+          "const": "next-step"
+        },
+        "version": {
+          "type": "string",
+          "const": "2026.1"
+        },
+        "topology": {
+          "type": "object",
+          "properties": {
+            "surfaces": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "intersections": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "overlays": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "required": [
+            "surfaces",
+            "intersections",
+            "overlays"
+          ]
+        }
+      },
+      "required": [
+        "engine",
+        "operator",
+        "version",
+        "topology"
+      ]
+    }
+  },
+  "required": [
+    "input",
+    "output"
+  ]
+}
 
