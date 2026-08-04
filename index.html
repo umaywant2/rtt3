@@ -1,1 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content="TriadicFrameworks Canon Engine" />
+  <meta name="theme-color" content="#0A0A0A" />
+  <meta name="description" content="RTT/3 Topology Engine — structural topology, regime intersections, drift‑coherence overlays." />
+
+  <title>RTT/3 — Topology Engine</title>
+
+  <link rel="stylesheet" href="assets/css/rtt3.css" />
+</head>
+
+<body>
+
+  <header>
+    <h1>RTT/3 — Topology Engine</h1>
+    <p class="subtitle">Structural Topology • Regime Intersections • Drift‑Coherence Overlays</p>
+  </header>
+
+  <section>
+    <h2>Purpose</h2>
+    <p>
+      RTT/3 constructs topology surfaces, regime intersections, and drift‑coherence overlays
+      from RTT/2 structural, drift, and coherence geometry. It is the topology bridge between
+      RTT/2 and RTT/12 in the TriadicFrameworks canon.
+    </p>
+  </section>
+
+  <section>
+    <h2>Pipeline Position</h2>
+    <pre>OpenGPU → RTT/1 → RTT/2 → <strong>RTT/3</strong> → RTT/12</pre>
+  </section>
+
+  <section>
+    <h2>Operators</h2>
+    <ul>
+      <li><strong>topology-map</strong> — structural topology from regimeView</li>
+      <li><strong>topology-scan</strong> — drift/coherence intersection analysis</li>
+      <li><strong>topology-geometry</strong> — topology surfaces from coherence geometry</li>
+      <li><strong>gpu-topology</strong> — RTT/3 GPU topology (surfaces, intersections, overlays)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>GPU Topology</h2>
+    <p>
+      The <strong>gpu-topology</strong> operator consumes RTT/2 gpu-stack output and produces
+      GPU topology surfaces, regime intersections, and drift‑coherence overlays. It is the RTT/3
+      integration point for OpenGPU.
+    </p>
+    <a href="engine/gpu-topology.md" class="button">GPU Topology Engine Doc</a>
+    <a href="docs/gpu-topology-protocol.md" class="button">GPU Topology Protocol</a>
+    <a href="docs/gpu-topology-capture.md" class="button">GPU Topology Capture</a>
+  </section>
+
+  <section>
+    <h2>Documentation</h2>
+    <ul>
+      <li><a href="engine/topology-map.md">topology-map</a></li>
+      <li><a href="engine/topology-scan.md">topology-scan</a></li>
+      <li><a href="engine/topology-geometry.md">topology-geometry</a></li>
+      <li><a href="engine/gpu-topology.md">gpu-topology</a></li>
+      <li><a href="docs/topology-map-protocol.md">topology-map protocol</a></li>
+      <li><a href="docs/topology-scan-protocol.md">topology-scan protocol</a></li>
+      <li><a href="docs/topology-geometry-protocol.md">topology-geometry protocol</a></li>
+      <li><a href="docs/gpu-topology-protocol.md">gpu-topology protocol</a></li>
+      <li><a href="docs/gpu-topology-capture.md">gpu-topology capture</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>RTT/3 Engine — TriadicFrameworks • Version 2026.1</p>
+  </footer>
+
+</body>
+</html>
 
