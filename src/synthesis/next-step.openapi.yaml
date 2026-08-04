@@ -1,1 +1,77 @@
+openapi: 3.1.0
+info:
+  title: RTT/3 Next-Step Synthesis API
+  version: "2026.1"
+  description: >
+    The RTT/3 Next-Step Synthesis operator combines structural topology,
+    regime intersections, coherence surfaces, and GPU topology into a unified
+    RTT/3 topology object.
+
+paths:
+  /next-step:
+    post:
+      summary: Perform RTT/3 topology synthesis
+      operationId: nextStepSynthesis
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NextStepInput"
+      responses:
+        "200":
+          description: Successful RTT/3 synthesis
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NextStepOutput"
+
+components:
+  schemas:
+
+    NextStepInput:
+      type: object
+      required:
+        - structuralTopology
+        - intersections
+        - surfaces
+        - gpuTopology
+      properties:
+        structuralTopology:
+          type: array
+          description: Output of topology-map
+        intersections:
+          type: array
+          description: Output of topology-scan
+        surfaces:
+          type: array
+          description: Output of topology-geometry
+        gpuTopology:
+          type: object
+          description: Output of gpu-topology operator
+
+    NextStepOutput:
+      type: object
+      properties:
+        engine:
+          type: string
+          example: "RTT/3"
+        operator:
+          type: string
+          example: "next-step"
+        version:
+          type: string
+          example: "2026.1"
+        topology:
+          type: object
+          properties:
+            surfaces:
+              type: array
+              description: Combined topology surfaces
+            intersections:
+              type: array
+              description: Combined regime intersections
+            overlays:
+              type: array
+              description: Drift‑coherence overlays including GPU overlays
 
