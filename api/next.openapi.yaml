@@ -1,1 +1,122 @@
+openapi: 3.1.0
+info:
+  title: RTT/3 Next-Step API
+  version: 2026.1
+  description: >
+    Client-facing API for RTT/3 synthesis. Accepts the four RTT/3 operator
+    outputs and returns the unified RTT/3 topology object.
+
+servers:
+  - url: /api/rtt3
+    description: Local client execution
+
+paths:
+  /next-step:
+    post:
+      summary: Run RTT/3 synthesis
+      operationId: nextStepClient
+      description: >
+        Merge structural topology, intersections, coherence surfaces,
+        and GPU topology into a unified RTT/3 topology object.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SynthesisInput"
+      responses:
+        "200":
+          description: Unified RTT/3 topology
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SynthesisOutput"
+        "400":
+          description: Missing or invalid synthesis inputs
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorOutput"
+
+components:
+  schemas:
+
+    SynthesisInput:
+      type: object
+      required:
+        - structuralTopology
+        - intersections
+        - surfaces
+        - gpuTopology
+      properties:
+        structuralTopology:
+          type: array
+          items:
+            type: object
+        intersections:
+          type: array
+          items:
+            type: object
+        surfaces:
+          type: array
+          items:
+            type: object
+        gpuTopology:
+          type: object
+          properties:
+            topology:
+              type: object
+              properties:
+                surfaces:
+                  type: array
+                  items:
+                    type: object
+                intersections:
+                  type: array
+                  items:
+                    type: object
+                overlays:
+                  type: array
+                  items:
+                    type: object
+
+    SynthesisOutput:
+      type: object
+      description: Unified RTT/3 topology object
+      properties:
+        engine:
+          type: string
+          example: "RTT/3"
+        operator:
+          type: string
+          example: "next-step"
+        version:
+          type: string
+          example: "2026.1"
+        topology:
+          type: object
+          properties:
+            surfaces:
+              type: array
+              items:
+                type: object
+            intersections:
+              type: array
+              items:
+                type: object
+            overlays:
+              type: array
+              items:
+                type: object
+
+    ErrorOutput:
+      type: object
+      description: Error envelope for invalid synthesis input
+      properties:
+        ok:
+          type: boolean
+          example: false
+        error:
+          type: string
+          example: "NS3-001: Missing synthesis inputs"
 
