@@ -1,1 +1,69 @@
+openapi: 3.1.0
+info:
+  title: RTT/3 Transformation Engine API
+  version: "2026.1"
+  description: >
+    The RTT/3 Transformation Engine constructs topology surfaces, regime
+    intersections, and drift‑coherence overlays from RTT/2 gpu-stack output.
+
+paths:
+  /transformation-engine:
+    post:
+      summary: Build RTT/3 topology from RTT/2 gpu-stack output
+      operationId: transformationEngine
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TransformationEngineInput"
+      responses:
+        "200":
+          description: Successful RTT/3 topology computation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TransformationEngineOutput"
+
+components:
+  schemas:
+
+    TransformationEngineInput:
+      type: object
+      required: ["regimeView", "driftView", "coherenceView"]
+      properties:
+        regimeView:
+          type: object
+          description: RTT/2 structural regime view
+        driftView:
+          type: object
+          description: RTT/2 drift vectors and drift fields
+        coherenceView:
+          type: object
+          description: RTT/2 coherence geometry surfaces, gradients, and alignment
+
+    TransformationEngineOutput:
+      type: object
+      properties:
+        engine:
+          type: string
+          example: "RTT/3"
+        operator:
+          type: string
+          example: "transformation-engine"
+        version:
+          type: string
+          example: "2026.1"
+        topology:
+          type: object
+          properties:
+            surfaces:
+              type: array
+              description: Topology surfaces derived from coherence geometry
+            intersections:
+              type: array
+              description: Regime intersections derived from structural + drift analysis
+            overlays:
+              type: array
+              description: Drift‑coherence overlays including GPU topology overlays
 
