@@ -1,1 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://triadicframeworks.org/rtt3/api/transform.schema.json",
+  "title": "RTT/3 Transformation Engine",
+  "description": "JSON Schema for RTT/3 transformation-engine input and operator output.",
+  "type": "object",
+
+  "properties": {
+    "input": {
+      "type": "object",
+      "title": "TransformationInput",
+      "required": [
+        "regimeView",
+        "driftView",
+        "coherenceView"
+      ],
+      "properties": {
+        "regimeView": {
+          "type": "object",
+          "description": "Structural regime view from RTT/2."
+        },
+        "driftView": {
+          "type": "object",
+          "description": "Drift vectors and drift fields from RTT/2."
+        },
+        "coherenceView": {
+          "type": "object",
+          "description": "Coherence geometry surfaces and alignment from RTT/2."
+        }
+      }
+    },
+
+    "output": {
+      "type": "object",
+      "title": "TransformationOutput",
+      "description": "RTT/3 operator outputs produced by transformation-engine.",
+      "properties": {
+        "engine": {
+          "type": "string",
+          "const": "RTT/3"
+        },
+        "operator": {
+          "type": "string",
+          "const": "transformation-engine"
+        },
+        "version": {
+          "type": "string",
+          "const": "2026.1"
+        },
+
+        "structuralTopology": {
+          "type": "array",
+          "description": "Structural topology from topology-map.",
+          "items": {
+            "type": "object"
+          }
+        },
+
+        "intersections": {
+          "type": "array",
+          "description": "Regime intersections from topology-scan.",
+          "items": {
+            "type": "object"
+          }
+        },
+
+        "surfaces": {
+          "type": "array",
+          "description": "Coherence surfaces from topology-geometry.",
+          "items": {
+            "type": "object"
+          }
+        },
+
+        "gpuTopology": {
+          "type": "object",
+          "description": "GPU topology from gpu-topology.",
+          "properties": {
+            "topology": {
+              "type": "object",
+              "required": [
+                "surfaces",
+                "intersections",
+                "overlays"
+              ],
+              "properties": {
+                "surfaces": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                },
+                "intersections": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                },
+                "overlays": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          },
+          "required": ["topology"]
+        }
+      },
+
+      "required": [
+        "engine",
+        "operator",
+        "version",
+        "structuralTopology",
+        "intersections",
+        "surfaces",
+        "gpuTopology"
+      ]
+    }
+  },
+
+  "required": ["input", "output"]
+}
 
