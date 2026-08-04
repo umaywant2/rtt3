@@ -1,4 +1,10 @@
+<img width="693" height="693" alt="aurion_rtt3" src="https://github.com/user-attachments/assets/74108fc7-0a37-468d-84d0-5217eecea568" />
+
 # **RTT/3 — Topology Engine**  
+
+- [`module.json`](https://raw.githubusercontent.com/umaywant2/rtt3/refs/heads/main/module.json) — Agentic module schema role assignments
+- [`engine.json`](https://raw.githubusercontent.com/umaywant2/rtt3/refs/heads/main/engine.json) — Agentic module schema engine assignments
+
 ### *Structural Topology • Regime Intersections • Drift‑Coherence Overlays*
 
 RTT/3 is the **Topology Engine** of the TriadicFrameworks canon.  
