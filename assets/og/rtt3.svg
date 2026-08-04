@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="630" viewBox="0 0 1200 630"
+     xmlns="http://www.w3.org/2000/svg"
+     font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#020617"/>
+
+  <!-- Substrate Glow -->
+  <rect width="1200" height="630" fill="url(#bgGradient)" opacity="0.35"/>
+  <defs>
+    <linearGradient id="bgGradient" x1="0" y1="0" x2="1200" y2="630">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+  </defs>
+
+  <!-- RTT/3 Title -->
+  <text x="80" y="150" fill="#e5e7eb" font-size="72" font-weight="700" letter-spacing="0.03em">
+    RTT/3 Engine
+  </text>
+
+  <!-- Subtitle -->
+  <text x="82" y="210" fill="#9ca3af" font-size="28">
+    Topology Construction • S → E → R → S
+  </text>
+
+  <!-- Accent Line -->
+  <rect x="80" y="240" width="300" height="4" fill="#22c55e"/>
+
+  <!-- Triadic Cycle Diagram -->
+  <circle cx="900" cy="260" r="110" fill="none" stroke="#1f2937" stroke-width="3"/>
+
+  <!-- Regime Nodes -->
+  <circle cx="900" cy="150" r="22" fill="#22c55e"/>
+  <text x="890" y="157" fill="#020617" font-size="20" font-weight="700">S</text>
+
+  <circle cx="1010" cy="260" r="22" fill="#2563eb"/>
+  <text x="1000" y="267" fill="#020617" font-size="20" font-weight="700">E</text>
+
+  <circle cx="900" cy="370" r="22" fill="#f97316"/>
+  <text x="890" y="377" fill="#020617" font-size="20" font-weight="700">R</text>
+
+  <!-- Arrows -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+      <polygon points="0 0, 6 3, 0 6" fill="#9ca3af"/>
+    </marker>
+  </defs>
+
+  <line x1="900" y1="172" x2="1000" y2="240"
+        stroke="#9ca3af" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <line x1="988" y1="282" x2="920" y2="350"
+        stroke="#9ca3af" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <line x1="880" y1="350" x2="880" y2="172"
+        stroke="#9ca3af" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- Tagline -->
+  <text x="80" y="330" fill="#9ca3af" font-size="26">
+    Structural • Drift • Coherence • GPU
+  </text>
+
+  <!-- Footer -->
+  <text x="80" y="560" fill="#6b7280" font-size="22">
+    TriadicFrameworks • 2026.1
+  </text>
+
+</svg>
