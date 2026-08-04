@@ -1,1 +1,75 @@
+openapi: 3.1.0
+info:
+  title: RTT/3 Triadic Shift API
+  version: "2026.1"
+  description: >
+    The RTT/3 Triadic Shift Operator performs structural, drift, coherence,
+    and GPU topology shifts across S / E / R regimes.
+
+paths:
+  /triadic-shift:
+    post:
+      summary: Perform RTT/3 triadic topology shift
+      operationId: triadicShift
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TriadicShiftInput"
+      responses:
+        "200":
+          description: Successful RTT/3 triadic shift
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TriadicShiftOutput"
+
+components:
+  schemas:
+
+    TriadicShiftInput:
+      type: object
+      required:
+        - regimeView
+        - driftView
+        - coherenceView
+      properties:
+        regimeView:
+          type: object
+          description: RTT/2 structural regime view
+        driftView:
+          type: object
+          description: RTT/2 drift vectors and drift fields
+        coherenceView:
+          type: object
+          description: RTT/2 coherence geometry surfaces, alignment, stability
+
+    TriadicShiftOutput:
+      type: object
+      properties:
+        engine:
+          type: string
+          example: "RTT/3"
+        operator:
+          type: string
+          example: "triadic-shift"
+        version:
+          type: string
+          example: "2026.1"
+        shift:
+          type: object
+          properties:
+            structural:
+              type: array
+              description: Structural regime transitions (S → E → R → S)
+            drift:
+              type: array
+              description: Drift-based directional shifts
+            coherence:
+              type: array
+              description: Coherence surface realignments
+            gpu:
+              type: array
+              description: GPU topology overlays applied during shift
 
