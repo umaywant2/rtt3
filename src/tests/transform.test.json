@@ -1,1 +1,79 @@
+{
+  "engine": "RTT/3",
+  "operator": "transform",
+  "version": "2026.1",
+
+  "description": "Validates full RTT/3 transformation pipeline using RTT/2 gpu-stack output.",
+
+  "input": {
+    "regimeView": {
+      "structure": {
+        "nodes": [
+          { "id": "substrate:rocm.queue.0", "label": "ROCm Queue 0", "tier": "S" },
+          { "id": "substrate:rdp.endpoint.client", "label": "RDP Client", "tier": "R" }
+        ],
+        "edges": [
+          { "from": "substrate:rocm.queue.0", "to": "substrate:rdp.endpoint.client", "weight": 0.8 }
+        ]
+      }
+    },
+
+    "driftView": {
+      "vectors": {
+        "structural": [
+          {
+            "label": "compose-frame",
+            "from": "substrate:rocm.queue.0",
+            "to": "substrate:rdp.endpoint.client",
+            "magnitude": 0.2
+          }
+        ]
+      },
+      "fields": [
+        {
+          "label": "rdp:gpu→client.display",
+          "regimes": ["S", "E", "R"],
+          "direction": "SER"
+        }
+      ]
+    },
+
+    "coherenceView": {
+      "surfaces": [
+        {
+          "label": "ROCm Queue 0 Surface",
+          "regimes": ["S", "E"]
+        }
+      ],
+      "alignment": [
+        {
+          "from": "substrate:rocm.queue.0",
+          "to": "exec:rocm.queue.0",
+          "magnitude": 0.85
+        }
+      ],
+      "stability": [
+        {
+          "label": "exec:rocm.queue.0",
+          "gradient": 0.9
+        }
+      ]
+    }
+  },
+
+  "expected": {
+    "topology": {
+      "surfaces": [
+        { "label": "ROCm Queue 0 Surface", "regimes": ["S", "E"] }
+      ],
+      "intersections": [
+        { "label": "ROCm Queue 0", "regimes": ["S"] },
+        { "label": "RDP Client", "regimes": ["R"] }
+      ],
+      "overlays": [
+        { "label": "compose-frame", "magnitude": 0.2 }
+      ]
+    }
+  }
+}
 
