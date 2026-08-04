@@ -1,1 +1,53 @@
+{
+  "ai.module": "gpu-topology",
+  "ai.version": "2026.1",
+  "ai.purpose": "Construct GPU topology surfaces, regime intersections, and drift‑coherence overlays from RTT/2 gpu‑stack output.",
+  "ai.keywords": ["RTT/3", "Topology", "GPU", "OpenGPU", "Surfaces", "Regime", "Drift", "Coherence", "Cluster"],
+  "ai.audience": "TriadicFrameworks developers and topology researchers",
+  "ai.module.name": "RTT/3 GPU Topology Engine",
+  "ai.module.summary": "Consumes RTT/2 gpu‑stack output and produces RTT/3 topology surfaces, intersections, and overlays for regime clustering.",
+  "ai.module.category": "Topology",
+  "title": "RTT/3 GPU Topology Engine",
+  "description": "The RTT/3 GPU Topology Engine transforms RTT/2 structural, drift, and coherence views into unified topology surfaces and regime intersections. It serves as the bridge between RTT/2 geometry and RTT/12 regime clustering.",
+  "canonical": {
+    "charset": "UTF-8",
+    "viewport": "width=device-width, initial-scale=1.0",
+    "generator": "TriadicFrameworks Canon Engine",
+    "identity": "RTT/3",
+    "robots": "index,follow",
+    "theme-color": "#0A0A0A",
+    "citation_author": "Nawder Loswin",
+    "citation_publication_date": "2026",
+    "DC.type": "Text",
+    "DC.format": "text/html",
+    "ai.navigation": "sitemap_main.xml",
+    "ai.discussions": "https://github.com/umaywant2/rtt3/discussions",
+    "ai.contact.x": "@TriadicFrameworks",
+    "ai.contact.youtube": "@TriadicFrameworks",
+    "ai.license": "Open educational use permitted"
+  },
+  "session.context": {
+    "Canon": "TriadicFrameworks",
+    "Modules": "RTT/3 Topology",
+    "Drift": "GPU structural drift overlays",
+    "Coherence": "GPU surface alignment",
+    "Version": "2026.1",
+    "Format": "module.json",
+    "Front door": "https://github.com/umaywant2/rtt3",
+    "Every page": "https://www.triadicframeworks.org/education/awareness",
+    "Audience": "Topology and regime researchers"
+  },
+  "badge": {
+    "emoji": "🧩",
+    "label": "RTT/3 GPU Topology"
+  },
+  "sidebar.audit": {
+    "phantom.entries": false,
+    "status": "canonical"
+  },
+  "diff.table": {
+    "old": "RTT/3 topology placeholder module.json",
+    "new": "RTT/3 GPU topology canonical metadata block"
+  }
+}
 
