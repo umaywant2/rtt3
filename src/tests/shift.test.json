@@ -1,1 +1,56 @@
+{
+  "engine": "RTT/3",
+  "operator": "shift",
+  "version": "2026.1",
+
+  "description": "Tests RTT/3 topology shift behavior using minimal gpu-stack input.",
+
+  "input": {
+    "regimeView": {
+      "structure": {
+        "nodes": [
+          { "id": "substrate:node.A", "label": "Node A", "tier": "S" },
+          { "id": "substrate:node.B", "label": "Node B", "tier": "R" }
+        ],
+        "edges": [
+          { "from": "substrate:node.A", "to": "substrate:node.B", "weight": 0.5 }
+        ]
+      }
+    },
+
+    "driftView": {
+      "vectors": {
+        "structural": [
+          { "label": "shift-test-vector", "from": "substrate:node.A", "to": "substrate:node.B", "magnitude": 0.3 }
+        ]
+      },
+      "fields": []
+    },
+
+    "coherenceView": {
+      "surfaces": [
+        { "label": "Shift Surface A", "regimes": ["S"] },
+        { "label": "Shift Surface B", "regimes": ["R"] }
+      ],
+      "alignment": [],
+      "stability": []
+    }
+  },
+
+  "expected": {
+    "topology": {
+      "surfaces": [
+        { "label": "Shift Surface A", "regimes": ["S"] },
+        { "label": "Shift Surface B", "regimes": ["R"] }
+      ],
+      "intersections": [
+        { "label": "Node A", "regimes": ["S"] },
+        { "label": "Node B", "regimes": ["R"] }
+      ],
+      "overlays": [
+        { "label": "shift-test-vector", "magnitude": 0.3 }
+      ]
+    }
+  }
+}
 
