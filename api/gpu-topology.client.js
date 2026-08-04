@@ -1,1 +1,10 @@
+export async function gpuTopology(gpuStackOutput) {
+  const response = await fetch("/api/gpu-topology", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(gpuStackOutput)
+  });
+
+  return response.json();
+}
 
