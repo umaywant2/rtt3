@@ -1,1 +1,245 @@
+/* RTT/3 — Core Layout & Theme
+ * ---------------------------
+ * Dark, engine-focused styling for RTT/3 docs, manifests, and protocol pages.
+ */
+
+:root {
+  --rtt-bg: #020617;
+  --rtt-surface: #0b1120;
+  --rtt-surface-alt: #020617;
+  --rtt-border: #1f2937;
+  --rtt-border-soft: #111827;
+
+  --rtt-text: #e5e7eb;
+  --rtt-text-soft: #9ca3af;
+  --rtt-text-muted: #6b7280;
+
+  --rtt-accent: #22c55e;   /* RTT/3 topology */
+  --rtt-accent-alt: #2563eb; /* operators */
+  --rtt-warn: #f97316;    /* synthesis / shift */
+
+  --rtt-code-bg: #020617;
+  --rtt-code-border: #1f2937;
+
+  --rtt-radius-sm: 6px;
+  --rtt-radius-md: 10px;
+  --rtt-radius-lg: 14px;
+
+  --rtt-font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --rtt-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* Base */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--rtt-bg);
+  color: var(--rtt-text);
+  font-family: var(--rtt-font-sans);
+  line-height: 1.6;
+}
+
+main,
+.markdown-body {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+  background: var(--rtt-surface);
+  border-radius: var(--rtt-radius-lg);
+  border: 1px solid var(--rtt-border);
+}
+
+/* Headings */
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+  color: var(--rtt-text);
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+}
+
+h1 {
+  font-size: 1.9rem;
+  border-bottom: 1px solid var(--rtt-border-soft);
+  padding-bottom: 0.4em;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  color: var(--rtt-text-soft);
+}
+
+/* Text */
+
+p {
+  margin: 0.6em 0;
+  color: var(--rtt-text-soft);
+}
+
+strong {
+  color: var(--rtt-text);
+}
+
+/* Lists */
+
+ul, ol {
+  margin: 0.4em 0 0.8em 1.4em;
+  color: var(--rtt-text-soft);
+}
+
+li {
+  margin: 0.2em 0;
+}
+
+/* Tables */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 0.9rem;
+}
+
+th, td {
+  padding: 0.5em 0.6em;
+  border: 1px solid var(--rtt-border-soft);
+}
+
+th {
+  background: #020617;
+  color: var(--rtt-text);
+  font-weight: 600;
+}
+
+td {
+  background: #020617;
+  color: var(--rtt-text-soft);
+}
+
+/* Code & Pre */
+
+code {
+  font-family: var(--rtt-font-mono);
+  font-size: 0.85rem;
+  background: #020617;
+  padding: 0.1em 0.3em;
+  border-radius: var(--rtt-radius-sm);
+  border: 1px solid var(--rtt-code-border);
+  color: #a5b4fc;
+}
+
+pre {
+  background: var(--rtt-code-bg);
+  border-radius: var(--rtt-radius-md);
+  border: 1px solid var(--rtt-code-border);
+  padding: 0.8em 1em;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+
+pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* Blockquotes */
+
+blockquote {
+  margin: 1em 0;
+  padding: 0.6em 0.9em;
+  border-left: 3px solid var(--rtt-accent-alt);
+  background: #020617;
+  color: var(--rtt-text-soft);
+  border-radius: var(--rtt-radius-sm);
+}
+
+/* RTT/3 Engine Badges */
+
+.rtt3-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0.8em 0 1.2em;
+}
+
+.rtt3-badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border: 1px solid var(--rtt-border-soft);
+  background: #020617;
+  color: var(--rtt-text-muted);
+}
+
+.rtt3-badge--engine {
+  border-color: var(--rtt-accent);
+  color: var(--rtt-accent);
+}
+
+.rtt3-badge--layer {
+  border-color: var(--rtt-accent-alt);
+  color: var(--rtt-accent-alt);
+}
+
+.rtt3-badge--status {
+  border-color: var(--rtt-warn);
+  color: var(--rtt-warn);
+}
+
+/* Section Cards */
+
+.rtt3-section {
+  margin: 1.4em 0;
+  padding: 1em 1.1em;
+  border-radius: var(--rtt-radius-md);
+  border: 1px solid var(--rtt-border-soft);
+  background: #020617;
+}
+
+.rtt3-section--highlight {
+  border-color: var(--rtt-accent);
+}
+
+.rtt3-section--protocol {
+  border-color: var(--rtt-accent-alt);
+}
+
+/* Inline labels */
+
+.rtt3-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--rtt-text-muted);
+}
+
+/* Links */
+
+a {
+  color: var(--rtt-accent-alt);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Small utilities */
+
+.rtt3-inline-code {
+  font-family: var(--rtt-font-mono);
+  font-size: 0.8rem;
+  background: #020617;
+  padding: 0.1em 0.3em;
+  border-radius: var(--rtt-radius-sm);
+  border: 1px solid var(--rtt-code-border);
+}
 
