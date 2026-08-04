@@ -1,9 +1,43 @@
-export async function gpuTopology(gpuStackOutput) {
-  const response = await fetch("/api/gpu-topology", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(gpuStackOutput)
-  });
+openapi: 3.1.0
+info:
+  title: RTT/3 GPU Topology API
+  version: "2026.1"
 
-  return response.json();
-}
+paths:
+  /gpu-topology:
+    post:
+      summary: Build RTT/3 GPU topology
+      operationId: gpuTopology
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GpuTopologyInput"
+      responses:
+        "200":
+          description: Successful RTT/3 topology computation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GpuTopologyOutput"
+
+components:
+  schemas:
+    GpuTopologyInput:
+      $ref: "./gpu-topology.schema.json"
+
+    GpuTopologyOutput:
+      type: object
+      properties:
+        engine:
+          type: string
+          example: "RTT/3"
+        operator:
+          type: string
+          example: "gpu-topology"
+        version:
+          type: string
+          example: "2026.1"
+        topology:
+          type: object
