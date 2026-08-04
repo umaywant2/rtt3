@@ -1,1 +1,116 @@
+openapi: 3.1.0
+info:
+  title: RTT/3 Transformation Engine API
+  version: 2026.1
+  description: >
+    Client-facing API for RTT/3 transformation-engine. Accepts RTT/2 gpu-stack
+    input and returns RTT/3 structural topology, intersections, surfaces, and
+    GPU topology.
+
+servers:
+  - url: /api/rtt3
+    description: Local client execution
+
+paths:
+  /transform:
+    post:
+      summary: Run RTT/3 transformation-engine
+      operationId: transformationEngineClient
+      description: >
+        Convert RTT/2 gpu-stack input into RTT/3 operator outputs:
+        structural topology, intersections, coherence surfaces, and GPU topology.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TransformationInput"
+      responses:
+        "200":
+          description: RTT/3 transformation output
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TransformationOutput"
+        "400":
+          description: Missing or invalid transformation inputs
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorOutput"
+
+components:
+  schemas:
+
+    TransformationInput:
+      type: object
+      required:
+        - regimeView
+        - driftView
+        - coherenceView
+      properties:
+        regimeView:
+          type: object
+          description: Structural regime view from RTT/2.
+        driftView:
+          type: object
+          description: Drift vectors and drift fields from RTT/2.
+        coherenceView:
+          type: object
+          description: Coherence geometry surfaces and alignment from RTT/2.
+
+    TransformationOutput:
+      type: object
+      description: RTT/3 operator outputs from transformation-engine.
+      properties:
+        engine:
+          type: string
+          example: "RTT/3"
+        operator:
+          type: string
+          example: "transformation-engine"
+        version:
+          type: string
+          example: "2026.1"
+        structuralTopology:
+          type: array
+          items:
+            type: object
+        intersections:
+          type: array
+          items:
+            type: object
+        surfaces:
+          type: array
+          items:
+            type: object
+        gpuTopology:
+          type: object
+          properties:
+            topology:
+              type: object
+              properties:
+                surfaces:
+                  type: array
+                  items:
+                    type: object
+                intersections:
+                  type: array
+                  items:
+                    type: object
+                overlays:
+                  type: array
+                  items:
+                    type: object
+
+    ErrorOutput:
+      type: object
+      description: Error envelope for invalid transformation input.
+      properties:
+        ok:
+          type: boolean
+          example: false
+        error:
+          type: string
+          example: "TE3-001: Missing transformation inputs"
 
