@@ -1,18 +1,524 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="generator" content="TriadicFrameworks Canon Engine" />
-  <meta name="theme-color" content="#0A0A0A" />
-  <meta name="description" content="RTT/3 Topology Engine — structural topology, regime intersections, drift‑coherence overlays." />
 
-  <title>RTT/3 — Topology Engine</title>
+<!-- ========================================================= -->
+<!-- RTT/3 — Canonical Metadata (Integration‑Aware 2026)        -->
+<!-- Active Editing Context: GitHub rtt3/index.html             -->
+<!-- Deployment Context: aurion.rtt3.online                     -->
+<!-- Documentation Context: triadicframeworks.org               -->
+<!-- Infrastructure Context: Cloudflare Dashboard               -->
+<!-- ========================================================= -->
 
-  <link rel="stylesheet" href="assets/css/rtt3.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RTT/3 — Synthesis & Transformation Engine</title>
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://aurion.rtt3.online">
+
+<!-- Description -->
+<meta name="description"
+      content="RTT/3 Engine — synthesis geometry, transformation maps, triadic shift protocols, GPU topology fusion, and next‑step synthesis surfaces.">
+
+<!-- Keywords -->
+<meta name="keywords"
+      content="RTT3, synthesis engine, transformation engine, triadic shift, topology fusion, coherence geometry, triadic frameworks">
+
+<!-- Identity -->
+<meta name="generator" content="TriadicFrameworks Canon Engine 2026">
+<meta name="creator" content="TriadicFrameworks">
+<meta name="author" content="Nawder Loswin">
+<meta name="publisher" content="TriadicFrameworks">
+<meta name="language" content="en">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0A0A0A">
+
+<!-- OpenGraph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RTT/3 Synthesis Engine">
+<meta property="og:title" content="RTT/3 — Synthesis & Transformation Engine">
+<meta property="og:url" content="https://aurion.rtt3.online">
+<meta property="og:description"
+      content="RTT/3 performs synthesis geometry, transformation mapping, triadic shift evaluation, and GPU topology fusion.">
+<meta property="og:image" content="/assets/og/rtt3.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RTT/3 — Synthesis & Transformation Engine">
+<meta name="twitter:description"
+      content="RTT/3 provides synthesis geometry, transformation mapping, triadic shift evaluation, and GPU topology fusion.">
+<meta name="twitter:image" content="/assets/og/rtt3.png">
+
+<!-- Citation -->
+<meta name="citation_title" content="RTT/3 — Synthesis & Transformation Engine">
+<meta name="citation_author" content="Nawder Loswin">
+<meta name="citation_publication_date" content="2026">
+<meta name="DC.subject"
+      content="RTT3, synthesis geometry, transformation mapping, triadic shift, topology fusion">
+<meta name="DC.type" content="Text">
+<meta name="DC.format" content="text/html">
+
+<!-- AI Metadata -->
+<meta name="ai.module" content="rtt3">
+<meta name="ai.version" content="3.0">
+<meta name="ai.purpose"
+      content="Perform synthesis geometry, transformation mapping, triadic shift evaluation, and GPU topology fusion.">
+<meta name="ai.keywords"
+      content="RTT3, synthesis, transformation, triadic shift, topology fusion, coherence geometry">
+<meta name="ai.audience" content="students, analysts, researchers, AIs">
+
+<!-- Integration Awareness -->
+<meta name="ai.integration.github" content="active (editing rtt3/index.html)">
+<meta name="ai.integration.cloudflare" content="active (triadicframeworks.com dashboard)">
+<meta name="ai.integration.docs" content="active (triadicframeworks.org)">
+<meta name="ai.integration.deploy" content="active (aurion.rtt3.online)">
+<meta name="ai.integration.music" content="ambient (YouTube Music tab)">
+
+<!-- Navigation & Contact -->
+<meta name="ai.navigation" content="https://www.triadicframeworks.org/sitemap_main.xml">
+<meta name="ai.discussions" content="https://github.com/umaywant2/TriadicFrameworks/discussions">
+<meta name="ai.contact.x" content="@NawderLoswin">
+<meta name="ai.contact.youtube" content="@NawderLoswin">
+<meta name="ai.license" content="Open educational use permitted">
+
+<!-- Module Identity -->
+<meta name="ai.module.name" content="RTT/3 Synthesis & Transformation Engine">
+<meta name="ai.module.summary"
+      content="RTT/3 synthesizes geometry, maps transformations, evaluates triadic shifts, and fuses GPU topology surfaces.">
+<meta name="ai.module.category" content="engine">
+
+<!-- Favicon Suite -->
+<link rel="icon" href="/assets/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/assets/favicon-192.png" sizes="192x192" type="image/png">
+
+<!-- Styles -->
+<link rel="preload" as="image" href="/assets/og/rtt3.png">
+<link rel="stylesheet" href="rtt3.css">
+
+<style>
+/* ============================================================
+   NAWDERIAN NEON ARCADE THEME — RTT/1 SYNTHWAVE EDITION
+   ============================================================ */
+
+:root {
+  --bg-main: #05060a;                 /* deep CRT black */
+  --bg-nav: #0a0c12;                  /* darker sidebar */
+  --bg-panel: #0f1118;
+
+  --text-main: #e8f7ff;               /* neon ice */
+  --text-muted: #7a8ca0;              /* CRT fade */
+
+  --neon-cyan: #3df5ff;
+  --neon-magenta: #ff3dfc;
+  --neon-yellow: #ffe66d;
+
+  --triadic-neon: linear-gradient(135deg,
+                      #3df5ff,
+                      #ff3dfc,
+                      #ffe66d);
+
+  --scanline: repeating-linear-gradient(
+                to bottom,
+                rgba(255,255,255,0.03) 0px,
+                rgba(255,255,255,0.03) 1px,
+                rgba(0,0,0,0.05) 2px
+              );
+
+  --radius: 10px;
+  --glow: 0 0 12px rgba(255, 0, 180, 0.45),
+          0 0 24px rgba(0, 255, 255, 0.25);
+}
+
+/* Base layout */
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-main);
+  background-image: var(--scanline);
+  color: var(--text-main);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto;
+  line-height: 1.65;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Neon headings */
+h1, h2, h3, h4 {
+  font-weight: 700;
+  margin-top: 1.8em;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+  background: var(--triadic-neon);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: var(--glow);
+}
+
+/* Paragraphs and lists */
+p, ul, ol {
+  padding: 0 1em;
+  margin: 0 0 1.1em 0;
+  color: var(--text-main);
+}
+
+/* Neon links */
+a {
+  color: var(--neon-cyan);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(255,255,255,0.25);
+  transition: color 0.2s ease, border-color 0.2s ease, text-shadow 0.2s ease;
+}
+
+a:hover,
+a:focus {
+  color: var(--neon-magenta);
+  border-bottom-color: var(--neon-magenta);
+  text-shadow: 0 0 8px var(--neon-magenta);
+}
+
+a:visited {
+  color: var(--neon-yellow);
+}
+
+/* Code blocks */
+pre, code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono";
+  background: rgba(255,255,255,0.04);
+  padding: 0.4em 0.6em;
+  border-radius: 6px;
+  color: #dffaff;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: inset 0 0 12px rgba(0,255,255,0.15);
+}
+
+/* Context block */
+.context-block {
+  font-family: monospace;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin: 0.5rem 0 1rem 0;
+  padding: 1rem;
+  background: var(--bg-panel);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  box-shadow: var(--glow);
+}
+
+.context-label {
+  color: var(--neon-yellow);
+  font-weight: bold;
+  margin-right: 0.25rem;
+}
+
+.context-value {
+  color: var(--text-main);
+}
+
+/* Navigation panel */
+nav {
+  width: 260px;
+  float: left;
+  background: var(--bg-nav);
+  padding: 1.2rem;
+  overflow-y: auto;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 4px 0 12px rgba(0,0,0,0.4);
+}
+
+nav h2 {
+  font-size: 0.9rem;
+  color: var(--neon-cyan);
+  margin-top: 1.2rem;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.04em;
+  text-shadow: var(--glow);
+}
+
+nav a {
+  display: block;
+  color: var(--text-muted);
+  padding: 0.35rem 0;
+  font-size: 0.9rem;
+}
+
+nav a:hover {
+  color: var(--neon-magenta);
+  text-shadow: 0 0 6px var(--neon-magenta);
+}
+
+/* Main content */
+main {
+  flex: 1;
+  padding: 2.5rem;
+  overflow-y: auto;
+}
+
+main h1, main h2, main h3 {
+  color: var(--neon-cyan);
+  font-weight: 500;
+  text-shadow: var(--glow);
+}
+
+pre {
+  background: #0b0d12;
+  padding: 1rem;
+  overflow-x: auto;
+  border-left: 2px solid var(--neon-magenta);
+}
+
+code {
+  color: var(--neon-cyan);
+}
+
+/* Hide the default arrow */
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+/* Custom arrow icons */
+details > summary::before {
+  content: "⏵"; /* collapsed */
+  padding-right: 6px;
+  font-size: 0.9em;
+}
+details[open] > summary::before {
+  content: "⏷"; /* expanded */
+}
+
+/* Make the h2/h3 feel like the toggle */
+details > summary h2,
+details > summary h3 {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hover effect */
+details > summary:hover h2,
+details > summary:hover h3 {
+  text-decoration: underline;
+}
+
+/* Optional: fade-in animation for opened blocks */
+details[open] {
+  animation: fadeIn 0.15s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+      
+</style>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="rtt1.js"></script>
+      
 </head>
 
 <body>
+   
+<nav class="nav-band">
+ <p align="center">
+  <!-- TriadicFrameworks Static Glyph (FFF‑Inspired) -->
+  <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="120" height="120" rx="12" fill="none"/>
+    <path d="M30 25 L55 25 L40 60 L65 60 L50 95" stroke="#6A5ACD" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M60 25 L85 25 L70 60 L95 60 L80 95" stroke="#20B2AA" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M45 25 L70 25 L55 60 L80 60 L65 95" stroke="#DA70D6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+ </p> 
+
+<!-- ========================= -->
+<!-- 🦋 RTT/3 Online | TriadicFrameworks -->
+<!-- ========================= -->
+<details>
+  <summary><h2>🦋 RTT/3 Online | TriadicFrameworks</h2></summary>
+      <a href="#README">🔰 README</a>
+      <a href="https://www.triadicframeworks.org/#ABOUT">🔗 About | TriadicFrameworks</a>
+      <a href="https://www.triadicframeworks.org/#CONTRIBUTING">🤝 Contributing</a>
+      <a href="https://www.triadicframeworks.org/education/">💯 Education | RTT</a>
+      <a href="https://www.triadicframeworks.org/#GLOSSARY">🎯 Glossary</a>
+      <a href="https://www.triadicframeworks.org/#LINEAGE">📜 Lineage</a>
+      <a href="https://www.triadicframeworks.org/#LICENSE">📎 License</a>
+      <a href="https://www.triadicframeworks.org/#sitemap">🌐 Sitemap</a>
+      <a href="https://www.triadicframeworks.org/#QUICKSTART">⚡ Quickstart</a>
+      <a href="https://www.triadicframeworks.org/#CODE_OF_CONDUCT">🤝 Code of Conduct</a>
+      <a href="https://www.triadicframeworks.org/honor_roll/">🏅 Honor Roll</a>
+      <a href="https://www.triadicframeworks.org/#SECURITY">🔐 Security</a>
+      <a href="https://www.triadicframeworks.org/#PRINCIPLES">🧘 Principles</a>
+      <a href="https://www.triadicframeworks.org/Canon/">🎅 Canon</a>   
+      <a href="https://www.triadicframeworks.org/#ETHICS_PRIVACY">🛡️ Ethics & Privacy</a>
+      <a href="https://www.triadicframeworks.org/#Grammar">🖖 Grammar</a>
+      <a href="https://www.triadicframeworks.org/#DOI_index">🔓 DOI index</a>
+      <a href="https://www.triadicframeworks.org/#Learning_Path">🎢 Learning Paths</a>
+      <a href="https://www.triadicframeworks.org/#SEENMAP">🥽 Seen Map</a>
+      <a href="https://www.triadicframeworks.org/#introduction">⛩️ Introduction</a> 
+    </details>      
+<details>
+  <summary><h3>🦋 Engine Information</h3></summary>
+    <a href="#ENGINE_RTT3_MANIFEST">📜 RTT/3 Manifest</a>
+    <a href="#ENGINE_NEXT_STEP_SYNTHESIS">🔮 Next‑Step Synthesis Engine</a>
+    <a href="#ENGINE_TRANSFORMATION_MAP">🗺️ Transformation Map</a>
+    <a href="#ENGINE_TRIADIC_SHIFT">⚡ Triadic Shift Engine</a>
+    <a href="#ENGINE_GPU_TOPOLOGY">🧩 GPU Topology Engine</a>
+</details>
+<details>
+  <summary><h3>📚 Protocols</h3></summary>
+    <a href="#DOCS_SYNTHESIS_PROTOCOL">🔮 Synthesis Protocol</a>
+    <a href="#DOCS_TRANSFORMATION_PROTOCOL">🌀 Transformation Protocol</a>
+    <a href="#DOCS_TRIADIC_SHIFT_PROTOCOL">⚡ Triadic Shift Protocol</a>
+    <a href="#DOCS_GPU_TOPOLOGY_PROTOCOL">🧩 GPU Topology Protocol</a>
+    <a href="#DOCS_INTEGRATION_NOTES">🔗 Integration Notes</a>
+</details>
+<details>
+  <summary><h3>🕸️ Topology & Capture</h3></summary>
+    <a href="#DOCS_GPU_TOPOLOGY_CAPTURE">📡 GPU Topology Capture</a>
+</details>
+   <details>
+     <summary><h2>🏗️ Triadic Tools</h2></summary> 
+      <a href="https://www.triadicframeworks.org/education/alignment/">🌐 Alignment | RTT</a>   
+      <a href="https://www.triadicframeworks.org/education/awareness/">🚸 Awareness</a>
+      <a href="https://www.triadicframeworks.org/triadic_observer_layer/">🔱 Triadic Observer Layer</a> 
+      <a href="https://www.triadicframeworks.org/domain_tool_primers/">🏗️ Domain Primer Tools</a>
+      <a href="https://www.triadicframeworks.org/packages/">📦 RTT Packages and Cores</a>
+      <a href="https://www.triadicframeworks.org/TFT_3Pack_v1.3/">♨️ TFT 3Pack CLI Tools</a>
+      <a href="https://www.triadicframeworks.org/schemas/">🕸️ Schemas</a>
+      <a href="https://www.triadicframeworks.org/ecoechosystem/">🛄 EcoEchoSystem</a>    
+      <a href="https://www.triadicframeworks.org/lactos/">🎨 LACTOS</a>
+      <a href="https://www.triadicframeworks.org/_ideas/">🤔 Ideas</a>
+      <a href="https://www.triadicframeworks.org/_ideas/Resonance-Time_Theory.html">🔛(RTT frozen)</a>
+      <a href="https://www.triadicframeworks.org/Framework_Field_Theory/">🔜FFT</a> 
+      <a href="https://www.triadicframeworks.org/rtt/1/">🔝RTT/1</a>
+      <a href="https://www.triadicframeworks.org/rtt/">🔙RTT</a>
+     </details>
+   <!-- RTT Session Header (canonical stub) -->
+<!-- ========================================================= -->
+<!-- RTT/3 — Session Context (Integration‑Aware)                -->
+<!-- ========================================================= -->
+
+<section id="rtt3-session-header"
+         data-rtt="3"
+         data-coherence="declared"
+         data-drift="bounded"
+         data-regime="synthesis">
+
+  <details>
+    <summary><h2>Session Context</h2></summary>
+
+    <div class="context-block">
+
+      <span class="context-label"><strong>Canon:</strong></span>
+      <span class="context-value">active (RTT/3 synthesis engine)</span><br>
+
+      <span class="context-label"><strong>Modules:</strong></span>
+      <span class="context-value">
+        synthesis geometry → transformation mapping → triadic shift → topology fusion
+      </span><br>
+
+      <span class="context-label"><strong>Drift:</strong></span>
+      <span class="context-value">bounded (synthesis‑stable)</span><br>
+
+      <span class="context-label"><strong>Coherence:</strong></span>
+      <span class="context-value">declared (RTT/3 synthesis grammar)</span><br>
+
+      <span class="context-label"><strong>Version:</strong></span>
+      <span class="context-value">3.0 (rtt3‑stable)</span><br>
+
+      <span class="context-label"><strong>Format:</strong></span>
+      <span class="context-value">html + markdown + synthesis surfaces + transformation maps</span><br>
+
+      <span class="context-label"><strong>Front door:</strong></span>
+      <span class="context-value">exists (RTT/3 root)</span><br>
+
+      <span class="context-label"><strong>Every page:</strong></span>
+      <span class="context-value">stands alone + AI‑parsable</span><br>
+
+      <span class="context-label"><strong>Audience:</strong></span>
+      <span class="context-value">students + analysts + researchers + AIs</span><br>
+
+      <!-- Integration Awareness -->
+      <span class="context-label"><strong>Integration:</strong></span>
+      <span class="context-value">
+        GitHub (editing) • Cloudflare (infra) • TriadicFrameworks Docs (canon) • RTT/3 Deployment (aurion)
+      </span>
+
+    </div>
+  </details>
+</section>
+
+<div style="display:inline-block;padding:6px 12px;background:#0A0A0A;color:#fff;
+            border-radius:6px;font-family:Arial, sans-serif;font-size:13px;">
+  🧩 RTT/3<br>🔮 Synthesis & Transformation Engine • Integration‑Aware
+</div>
+
+</nav>
+
+<main id="content"></main>
+
+<script>
+
+const DOC_MAP = {
+  // Root
+  README: 'README.md',
+  // docs/
+  DOCS_GPU_TOPOLOGY_CAPTURE: 'docs/gpu-topology-capture.md',
+  DOCS_GPU_TOPOLOGY_PROTOCOL: 'docs/gpu-topology-protocol.md',
+  DOCS_INTEGRATION_NOTES: 'docs/integration-notes.md',
+  DOCS_SYNTHESIS_PROTOCOL: 'docs/synthesis-protocol.md',
+  DOCS_TRANSFORMATION_PROTOCOL: 'docs/transformation-protocol.md',
+  DOCS_TRIADIC_SHIFT_PROTOCOL: 'docs/triadic-shift-protocol.md',
+  // engine/
+  ENGINE_GPU_TOPOLOGY: 'engine/gpu-topology.md',
+  ENGINE_NEXT_STEP_SYNTHESIS: 'engine/next-step-synthesis.md',
+  ENGINE_RTT3_MANIFEST: 'engine/rtt3_manifest.md',
+  ENGINE_TRANSFORMATION_MAP: 'engine/transformation-map.md',
+  ENGINE_TRIADIC_SHIFT: 'engine/triadic-shift.md',
+};
+  
+function loadFromHash() {
+  const key = window.location.hash.replace('#', '');
+  if (DOC_MAP[key]) {
+    loadDoc(DOC_MAP[key]);
+  } else {
+    loadDoc('README.md');
+  }
+}
+function loadDoc(file) {
+  fetch(file)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Failed to load ${file}`);
+      }
+      return response.text();
+    })
+    .then(text => {
+      const content = document.getElementById('content');
+      content.innerHTML = marked.parse(text);
+
+      if (window.MathJax) {
+        MathJax.typesetPromise([content]);
+      }
+    })
+    .catch(err => {
+      document.getElementById('content').innerHTML =
+        `<p style="color:#ff8080;">Unable to load document: ${file}</p>`;
+      console.error(err);
+    });
+}
+  
+window.addEventListener('hashchange', loadFromHash);
+loadFromHash();
+
+</script>
 
   <header>
     <h1>RTT/3 — Topology Engine</h1>
